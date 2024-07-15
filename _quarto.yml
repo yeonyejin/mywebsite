@@ -10,7 +10,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - hw1
+      - hw1.qmd
 format:
   html:
     theme: cosmo
