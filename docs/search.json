@@ -19,5 +19,19 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "hw1.html",
+    "href": "hw1.html",
+    "title": "hw1",
+    "section": "",
+    "text": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"col1\": [1, 2, 3]\n})"
+  },
+  {
+    "objectID": "hw1.html#다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요.",
+    "href": "hw1.html#다음-표의-내용을-데이터-프레임으로-만들어-출력해-보세요.",
+    "title": "hw1",
+    "section": "",
+    "text": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"col1\": [1, 2, 3]\n})"
   }
 ]
