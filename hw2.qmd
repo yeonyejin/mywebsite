@@ -128,7 +128,8 @@ mpg = mpg.assign(
         mean = (mpg['cty'] + mpg['hwy'])/2)
 
 mean = (mpg['cty'] + mpg['hwy'])/2
-mpg.sort_values('mean', ascending = False).head(3)
+mpg.sort_values('mean', ascending = False)\
+.head(3)
 
 
 ```
