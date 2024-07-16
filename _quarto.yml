@@ -10,7 +10,7 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: aboutqmd
+        text: About
       - href: hw1.qmd
         text: hw1
 format:
