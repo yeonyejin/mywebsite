@@ -1,6 +1,16 @@
 ---
 title: "testwebsite"
+toc: false
 jupyter: python3
+about: 
+  id: hero-heading
+  template: jolla
+  image: grapefruit.jpg
+  links:
+      - icon: github
+        text: Githib
+        href: https://github.com/yeonyejin
+   
 ---
 
 ## 홈페이지 첫 화면 입니다!

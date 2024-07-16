@@ -9,8 +9,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - hw1.qmd
+      - href: about.qmd
+        text: aboutqmd
+      - href: hw1.qmd
+        text: hw1
 format:
   html:
     theme: cosmo
