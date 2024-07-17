@@ -11,10 +11,9 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: hw1.qmd
-        text: hw1
-      - href: hw2.qmd
-        text: hw2
+      - href: blog.qmd
+        text: blog
+        
 format:
   html:
     theme: cosmo

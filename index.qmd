@@ -10,7 +10,6 @@ about:
       - icon: github
         text: Githib
         href: https://github.com/yeonyejin
-   
 ---
 
 ## 홈페이지 첫 화면 입니다!
