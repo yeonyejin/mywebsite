@@ -1,0 +1,107 @@
+---
+title: "교과서 챕터8"
+format: html
+jupyter: python3
+---
+
+##빈도 막대 그래프 그리기
+
+데이터 불러오기
+```{python}
+import pandas as pd
+
+mpg= pd.read_csv("mpg.csv")
+mpg.shape
+
+```
+
+
+
+Seaborn 패키지 불러오기
+
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+```
+
+
+### `barplot()`사용하기
+
+데이터 전처리하기
+```{python}
+
+df_mpg=mpg.groupby("drv", as_index=False) \
+   .agg(mean_hwy=('hwy', 'mean'))
+df_mpg
+
+```
+
+###`barplot()` 사용해서 그래프 그리기
+```{python}
+sns.barplot(data=df_mpg.sort_values("mean_hwy", ascending=False),
+            x = "drv", y = "mean_hwy",
+            hue = "drv")
+
+
+```
+
+
+### `countplot()`사용하기
+```{python}
+
+sns.countplot(data=mpg, x='drv')
+
+```
+
+```{python}
+import plotly.express as px
+px.scatter(data_frame = mpg, x = 'cty', y = 'hwy', color = 'drv')
+
+
+```
+### 막대 그래프 만들기
+데이터 전처리 하기 
+# 자동차 종류별로 빈도 구하기기
+```{python}
+df = mpg.groupby('category', as_index = False)\
+        .agg(n = ('category', 'count'))
+
+```
+
+
+#막대 그래프 만들기
+```{python}
+px.bar(data_frame = df, x = 'category', y = 'n', color = 'category')
+
+```
+## 선 그래프 만들기
+ economics 불러오고 선 그래프 만들기기
+```{python}
+economics = pd.read_csv('economics.csv')
+economics
+import plotly.express as px
+px.line(data_frame = economics, x = 'date', y= 'psavert')
+
+
+```
+# 상자 그림 만들기
+```{python}
+
+px.box(data_frame = mpg, x = 'drv', y = 'hwy', color = 'drv')
+
+```
+
+
+#HTML 파일로 저장하기
+
+```{python}
+fig = px.scatter(data_frame = mpg, x = 'cty', y = 'hwy')
+
+fig.write_html('scatter_plot.html')
+
+```
+
+

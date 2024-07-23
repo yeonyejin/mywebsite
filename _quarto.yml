@@ -13,6 +13,8 @@ website:
         text: About
       - href: blog.qmd
         text: blog
+      - href: mpg.qmd
+        text: mpg
         
 format:
   html:
