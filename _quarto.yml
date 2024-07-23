@@ -4,7 +4,7 @@ project:
 
 
 website:
-  title: "DS 연예진"
+  title: "LS빅데이터 조별과제"
   navbar:
     left:
       - href: index.qmd

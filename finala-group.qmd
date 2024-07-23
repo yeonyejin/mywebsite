@@ -34,6 +34,9 @@ categories: [project]
 # 데이터 전처리 코드
 
 **원본 데이터 불러오기 및 리스트 초기화**
+1. `before_name`: 변경 전 이름 List
+2. `after_name`: 변경 후 이름 List
+3. `lst_mean12_19`: 12 ~ 19년도 청년층의 시도별 모의 출산율 평균 Series List
 
 ```{python}
 import pandas as pd
@@ -47,9 +50,6 @@ lst_mean12_19 = []
 df
 ```
 
-1. `before_name`: 변경 전 이름 List
-2. `after_name`: 변경 후 이름 List
-3. `lst_mean12_19`: 12 ~ 19년도 청년층의 시도별 모의 출산율 평균 Series List
 
 **이름 변경을 위한 문자열 추가**
 
@@ -78,7 +78,7 @@ for i in range(12, 23):
 print("before_name: " + str(before_name) + "\n" + "after_name: " + str(after_name))
 ```
 
-**복사본 br을 만들고, 열을 통합하기 위해 0번 열을 제거함**
+**복사본 br을 만들고, 행을 통합하기 위해 0번 행을 제거함**
 
 EX) 2020 + 15 ~ 19세 → 20_1519
 
@@ -90,6 +90,8 @@ br.drop(0, inplace = True)
 br.reset_index(drop = True, inplace = True)
 br
 ```
+
+
 
 **의미를 통합하기 위해, 전체 열의 이름을 변경**
 
@@ -147,43 +149,6 @@ for i in range(0, 56, 7):
   lst_mean12_19.append((br[after_name[i + 1]] + br[after_name[i + 2]] + br[after_name[i + 3]]) / 3)
 
 lst_mean12_19
-```
-
-**각 시도별 청년층 모의 출산율의 평균이 전국 청년층 평균과 비교하여 큰지 작은지 비교**
-
-12 ~ 19년은 `lst_mean12_19` 리스트를 활용해 계산
-
-`range(12, 20)`으로 `i`에 12, 13, 14, ... 19가 들어감
-
-"compare12" ~ "compare19" 열을 추가하고, 시도별 평균과 전체 평균을 비교함
-
-EX) `i = 12`일 때
-    `lst_mean12_19[0].mean() <= lst_mean12_19[0]`: 12년도 전체 평균(숫자) <= 12년도 시도별 평균(Series)을 비교함
-
-```{python}
-for i in range(12, 20):
-  br["compare" + str(i)] = np.where(lst_mean12_19[i - 12][0] < lst_mean12_19[i - 12], "large",
-                           np.where(lst_mean12_19[i - 12][0] == lst_mean12_19[i - 12], "whole", "small"))
-
-print(br.head(5))
-```
-
-**최근 3년의 평균은 List가 아닌 DataFrame의 열로 가지고 있으므로, 추출하여 비교 계산**
-    
-```{python}
-br["compare20"] = np.where(br["mean20"][0] < br["mean20"], "large",
-                  np.where(br["mean20"][0] == br["mean20"], "whole", "small"))
-br["compare21"] = np.where(br["mean21"][0] < br["mean21"], "large",
-                  np.where(br["mean21"][0] == br["mean21"], "whole", "small"))
-br["compare22"] = np.where(br["mean22"][0] < br["mean22"], "large",
-                  np.where(br["mean22"][0] == br["mean22"], "whole", "small"))
-
-br.head(5)
-```
-
-
-```{python}
-br
 ```
 
 
@@ -314,10 +279,12 @@ plt.clf()
 **청년층의 출산율이 높은 지역 상위5 & 하위5**
 
 ```{python}
+print('상위' + '\n')
 print(br[['시군구별', "mean20"]].sort_values("mean20", ascending = False).head(), "\n", "-------------------------")
 print(br[['시군구별', "mean21"]].sort_values("mean21", ascending = False).head(), "\n", "-------------------------")
 print(br[['시군구별', "mean22"]].sort_values("mean22", ascending = False).head(), "\n", "--------------------------")
 
+print('하위' + '\n')
 print(br[['시군구별', "mean20"]].sort_values("mean20").head(), "\n", "--------------------------")
 print(br[['시군구별', "mean21"]].sort_values("mean21").head(), "\n", "--------------------------")
 print(br[['시군구별', "mean22"]].sort_values("mean22").head())
