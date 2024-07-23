@@ -15,7 +15,7 @@ website:
         text: blog
       - href: mpg.qmd
         text: mpg
-      - href: fianla-group.qmd
+      - href: finala-group.qmd
         text: a-project
 format:
   html:
