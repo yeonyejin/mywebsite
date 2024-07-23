@@ -250,7 +250,7 @@ print('비청년: ', br3_non_youth_rate)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data = data = pd.DataFrame({
+data = pd.DataFrame({
     'Age Group': ['12_14Youth', '20_22Youth', '12_14Non-Youth', '20_22Non-Youth'],
     'Mean Birth Rate': [br3_youth_rate, br2_youth_rate, br3_non_youth_rate, br2_non_youth_rate],
     'Youth': ['Youth', 'Youth', 'Non-Youth', 'Non-Youth']
