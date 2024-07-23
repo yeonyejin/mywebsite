@@ -287,13 +287,19 @@ print('비청년: ', br3_non_youth_rate)
 ```{python}
 import matplotlib.pyplot as plt
 import seaborn as sns
-colors = ['orchid', 'lightpink', 'palevioletred', 'hotpink', 'plum', 'thistle']
 
-sns.barplot(x=['12_14Youth', '20_22Youth','12_14Non-Youth', '20_22Non-Youth'], y=[br3_youth_rate,br2_youth_rate, br3_non_youth_rate, br2_non_youth_rate], palette=colors)
+data = data = pd.DataFrame({
+    'Age Group': ['12_14Youth', '20_22Youth', '12_14Non-Youth', '20_22Non-Youth'],
+    'Mean Birth Rate': [br3_youth_rate, br2_youth_rate, br3_non_youth_rate, br2_non_youth_rate],
+    'Youth': ['Youth', 'Youth', 'Non-Youth', 'Non-Youth']
+})
+
+sns.barplot(x='Age Group', y='Mean Birth Rate', hue='Youth', data=data)
 plt.xlabel('Age Group', fontsize=12)
 plt.ylabel('Mean Birth Rate', fontsize=12)
 plt.title('12-14/20-22 Mean Birth Rate Comparison', fontsize=15)
 plt.show()
+plt.clf()
 ```
 
 
@@ -316,6 +322,7 @@ print(br[['시군구별', "mean20"]].sort_values("mean20").head(), "\n", "------
 print(br[['시군구별', "mean21"]].sort_values("mean21").head(), "\n", "--------------------------")
 print(br[['시군구별', "mean22"]].sort_values("mean22").head())
 
+
 ```
 
 **각 도시 청년층의 평균모의출산율 그래프**
@@ -323,9 +330,11 @@ print(br[['시군구별', "mean22"]].sort_values("mean22").head())
 
 ```{python}
 import seaborn as sns
+colors = ['orchid', 'lightpink', 'palevioletred', 'hotpink', 'plum', 'thistle']
+plt.rcParams.update({'font.family' : 'Malgun Gothic'})
 new = br[['시군구별', 'mean20']].sort_values("mean20", ascending=False)
 plt.figure(figsize=(7, 3))
-sns.barplot(data=new, x='시군구별', y='mean20', palette=colors)
+sns.barplot(data=new, x='시군구별', y='mean20',palette=colors)
 plt.xticks(rotation=45)  
 plt.xlabel('시군구별', fontsize=12)
 plt.ylabel('Mean Birth Rate 2020', fontsize=12)
