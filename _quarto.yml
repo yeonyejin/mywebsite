@@ -17,6 +17,8 @@ website:
         text: mpg
       - href: finala-group.qmd
         text: a-project
+      - href: hw4.qmd
+        text: hw4
 format:
   html:
     theme: cosmo
