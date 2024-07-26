@@ -1,5 +1,8 @@
 ---
 title: "hw4"
+author: "연예진"
+data: "2024 -07-25,6"
+categories: [bigdata]
 jupyter: python3
 ---
 
