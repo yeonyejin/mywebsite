@@ -24,7 +24,7 @@ def my_pdf (x, mu, sigma):
 
 mu = 3
 sigma = 2
-x_values=np.linspace(-10, 10, 100)
+x_values=np.linspace(-3, 10, 100)
 pdf_values = [my_pdf(x, mu, sigma) for x in x_values]
 plt.plot(x_values, pdf_values, color="black")
 plt.show()

@@ -8,7 +8,7 @@
 
 <meta name="author" content="연예진">
 
-<title>DS 연예진 - 빅데이터 스쿨 Homework3</title>
+<title>연예진 - 빅데이터 스쿨 Homework3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">DS 연예진</span>
+    <span class="navbar-title">연예진</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="p204-mpg-데이터와-midwest-데이터를-이용해-분석-문제를-해결해-보세요." class="level2">
 <h2 class="anchored" data-anchor-id="p204-mpg-데이터와-midwest-데이터를-이용해-분석-문제를-해결해-보세요.">p204 mpg 데이터와 midwest 데이터를 이용해 분석 문제를 해결해 보세요.</h2>
 <p>Q1. mpg데이터의 cty(도시 연비)와 hwy(고속도로 연비)간에 어떤 관계가 있는지 알아보려고 합니다 x축은 cty, y축은 hwy로 된 산점도를 만들어 보세요.</p>
-<div id="0555e0db" class="cell" data-execution_count="1">
+<div id="e575f5b1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mpg<span class="op">=</span>pd.read_csv(<span class="st">'mpg.csv'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Q2. 미국의 지역별 인구통계 정보를 담은 midwest.csv를 이용해 전체 인구와 아시아인 인구 간에 어떤 관계가 있는지 알아보려고 합니다. x축은 poptotal(전체인구), y축은 popasian(아시아인 인구)으로 된 산점도를 만들어 보세요. 전체 인구는 50만 명 이하, 아시아인 인구는 1만 명 이하인 지역만 산점도에 표시되게 설정하세요.</p>
-<div id="b4983fe8" class="cell" data-execution_count="2">
+<div id="53f373aa" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>midwest<span class="op">=</span>pd.read_csv(<span class="st">'midwest.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="p211-mpg데이터를-이용해-분석-문제를-해결해-보세요." class="level2">
 <h2 class="anchored" data-anchor-id="p211-mpg데이터를-이용해-분석-문제를-해결해-보세요.">p211 mpg데이터를 이용해 분석 문제를 해결해 보세요.</h2>
 <p>Q1. 어떤 회사에서 생산한 ‘suv’ 차종의 도시 연비가 높은지 알아보려고 합니다. ‘suv’ 차종을 대상으로 cty(도시 연비)평균이 가장 높은 회사 다섯 곳을 막대 그래프로 표현해 보세요. 막대는 연비가 높은 순으로 정렬하세요.</p>
-<div id="a92d6e25" class="cell" data-execution_count="3">
+<div id="2b72c464" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> pd.read_csv(<span class="st">'mpg.csv'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Q2. 자동차 중에 어떤 category(자동차 종류)가 많은지 알아보려고 합니다. sns.barplot()을 이용해 자동차 종류별 빈도를 표현한 막대 그래프를 만들어 보세요. 막대는 빈도가 높은 순으로 정렬하세요.</p>
-<div id="acefdef2" class="cell" data-execution_count="4">
+<div id="3ab27898" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df1_mpg <span class="op">=</span> mpg.groupby(<span class="st">'category'</span>, as_index <span class="op">=</span> <span class="va">False</span>)<span class="op">\</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             .agg(n <span class="op">=</span> (<span class="st">'category'</span>, <span class="st">'count'</span>))<span class="op">\</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>             .sort_values(<span class="st">'n'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span>
