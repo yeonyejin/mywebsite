@@ -109,7 +109,7 @@
     "href": "blog.html",
     "title": "글 목록",
     "section": "",
-    "text": "빅데이터 스쿨 Homework1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\nNo matching items"
+    "text": "빅데이터 스쿨 Homework1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw5\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/hw1/index.html",
@@ -236,5 +236,26 @@
     "title": "hw4",
     "section": "",
     "text": "#숙제1번 import scipy.stat import norm 사용금지 # 1. 정규분포 pdf 값을 계산하는 자신만의 # 파이썬 함수를 정의하고, # 정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport math\n\n\ndef my_pdf (x, mu, sigma):\n    part_1 = 1 / (sigma * math.sqrt(2 * math.pi))\n    part_2 = math.exp(-0.5 * ((x - mu) ** 2) / (sigma ** 2))\n    return part_1 * part_2\n\nmu = 3\nsigma = 2\nx_values=np.linspace(-10, 10, 100)\npdf_values = [my_pdf(x, mu, sigma) for x in x_values]\nplt.plot(x_values, pdf_values, color=\"black\")\nplt.show()"
+  },
+  {
+    "objectID": "posts/hw5/hw5.html",
+    "href": "posts/hw5/hw5.html",
+    "title": "hw5",
+    "section": "",
+    "text": "##균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요. X ~ 균일분포U(a , b) loc:a, scale: b-a\n\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport seaborn as sns\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\nx\n\narray([[5.29330147, 4.39428352, 6.42822502, ..., 6.79057362, 5.55651221,\n        3.34313017],\n       [6.4768073 , 5.65541085, 6.21875244, ..., 5.4944167 , 3.07273137,\n        5.29697908],\n       [3.01763699, 3.2014101 , 3.29594486, ..., 6.43641162, 3.80152935,\n        4.7324298 ],\n       ...,\n       [5.80273626, 4.6790122 , 4.35367356, ..., 3.0799694 , 3.95011226,\n        4.1199749 ],\n       [5.34546413, 4.10100921, 5.12237651, ..., 4.36858918, 6.31719593,\n        4.1387256 ],\n       [5.11046292, 4.54138216, 6.69584978, ..., 6.21739402, 5.13995442,\n        4.68177049]])\n\n\n##n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, n-1로 나눈 것을 s_2\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\nx\ns_2=np.var(x, ddof=1)\ns_2\n\nnp.float64(1.3387673411292365)\n\n\nn으로 나눈 것을 k_2\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\nx\nk_2=np.var(x,ddof=0)\nk_2\n\nnp.float64(1.338168109779997)\n\n\n##s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용)\nS_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1, 20)\nx.shape\ns_2=np.var(x, ddof=1, axis=1)\n\nsns.histplot(s_2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\nk_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1, 20)\nx.shape\nk_2=np.var(x, ddof=0, axis=1)\n\nsns.histplot(k_2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n##각 분포 그래프에 모분산의 위치에 녹색 막대를 그려주세요. s_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1, 20)\ns_2=np.var(x, ddof=1, axis=1)\n\nsns.histplot(s_2)\nplt.axvline(x.var(), color='green',\n            linestyle='--', linewidth=2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\nk_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1, 20)\nk_2=np.var(x, ddof=0, axis=1)\n\nsns.histplot(k_2)\nplt.axvline(x.var(), color='green',\n            linestyle='--', linewidth=2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n##결과를 살펴보고, 왜 n-1로 나눈 것을 ##분산을 추정하는 지표로 사용하는 것이 타당한지 써주세요!"
+  },
+  {
+    "objectID": "posts/hw5/hw5.html#s_2의-분포",
+    "href": "posts/hw5/hw5.html#s_2의-분포",
+    "title": "hw5",
+    "section": "S_2의 분포",
+    "text": "S_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\nx.shape\ns_2=np.var(x, ddof=1, axis=1)\n\nsns.histplot(s_2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "posts/hw5/hw5.html#k_2의-분포",
+    "href": "posts/hw5/hw5.html#k_2의-분포",
+    "title": "hw5",
+    "section": "k_2의 분포",
+    "text": "k_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\nx.shape\nk_2=np.var(x, ddof=0, axis=1)\n\nsns.histplot(k_2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n#각 분포 그래프에 모분산의 위치에 녹색 막대를 그려주세요. #s_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\ns_2=np.var(x, ddof=1, axis=1)\n\nsns.histplot(s_2)\nplt.axvline(x.var(), color='green',\n            linestyle='--', linewidth=2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n#k_2의 분포\n\nx=uniform.rvs(loc=3, scale=4, size=20*1000)\nx = x.reshape(-1, 20)\nk_2=np.var(x, ddof=0, axis=1)\n\nsns.histplot(k_2)\nplt.axvline(x.var(), color='green',\n            linestyle='--', linewidth=2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n#결과를 살펴보고, 왜 n-1로 나눈 것을 #분산을 추정하는 지표로 사용하는 것이 타당한지 써주세요!"
   }
 ]
