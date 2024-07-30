@@ -1,0 +1,134 @@
+---
+title: "hw6"
+author: "연예진"
+data: "2024 -07-30"
+categories: [bigdata]
+jupyter: python3
+---
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+raw_welfare = pd.read_spss('Koweps_hpwc14_2019_beta2.sav')
+raw_welfare
+
+welfare=raw_welfare.copy()
+welfare.shape
+welfare.describe()
+
+welfare=welfare.rename(
+    columns = {
+        "h14_g3": "sex",
+        "h14_g4": "birth",
+        "h14_g10": "marriage_type",
+        "h14_g11": "religion",
+        "p1402_8aq1": "income",
+        "h14_eco9": "code_job",
+        "h14_reg7": "code_region"
+        
+    }
+)
+
+welfare = welfare[["sex", "birth", "marriage_type",
+                  "religion", "income", "code_job", "code_region"]]
+                  
+welfare.shape
+
+welfare["sex"].dtypes
+welfare["sex"].value_counts()
+#welfare["sex"].isna().sum()
+
+
+welfare["sex"] = np.where(welfare["sex"] == 1, 'male', 'female')
+welfare["sex"].value_counts()
+
+
+welfare["income"].describe()
+welfare["income"].isna().sum()
+
+sex_income=welfare.dropna(subset="income")\
+       .groupby("sex", as_index=False)\
+       .agg(mean_income = ("income", "mean"))
+sex_income
+
+import seaborn as sns
+sns.barplot(data=sex_income, x="sex", y="mean_income",
+            hue="sex")
+            
+
+plt.show()
+
+
+
+
+
+```
+#각 성별 평균을 구분하기 위해 query로 뺌
+```{python}
+female = welfare.dropna(subset="income").query("sex == 'female'")["income"]
+male = welfare.dropna(subset="income").query("sex == 'male'")["income"]  
+```
+
+
+#표본평균
+```{python}
+fm=female.mean()
+mm=male.mean()
+
+```
+
+
+#데이터 갯수
+```{python}
+fc=female.count()
+mc=male.count()
+
+```
+
+#표준편차
+```{python}
+fs=female.std()
+ms=male.std()
+
+```
+
+
+#분산
+```{python}
+fv=female.var()
+mv=male.var()
+
+```
+
+
+
+#신뢰구간
+```{python}
+from scipy.stats import norm
+
+z_005=norm.ppf(0.95, loc=0, scale=1)
+z_005
+fz_max=fm + z_005 * (fs/ np.sqrt(fc))
+fz_min=fm - z_005 * (fs/ np.sqrt(fc))
+
+
+z_005=norm.ppf(0.95, loc=0, scale=1)
+z_005
+mz_max=mm + z_005 * (ms/ np.sqrt(mc))
+mz_min=mm - z_005 * (ms/ np.sqrt(mc))
+
+
+
+```
+
+
+
+# 오차막대 그리기
+```{python}
+
+
+
+
+```
