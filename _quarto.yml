@@ -11,7 +11,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: blog.qmd
+      - href: posts/index.qmd
         text: blog
       - href: mpg.qmd
         text: mpg
