@@ -109,7 +109,7 @@
     "href": "blog.html",
     "title": "글 목록",
     "section": "",
-    "text": "빅데이터 스쿨 Homework1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw5\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw6\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw7\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\nNo matching items"
+    "text": "빅데이터 스쿨 Homework1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw5\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw6\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nhw7\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\n연예진\n\n\n\n\n\n\n\n\n\n\n\n\nRecent posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/hw1/index.html",
@@ -306,5 +306,12 @@
     "title": "hw7",
     "section": "숙제 p57 신형 자동차의 에너지 소비효율 등급",
     "text": "숙제 p57 신형 자동차의 에너지 소비효율 등급\n\nimport numpy as np\n\nx=np.array([15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927,\n15.382, 16.709, 16.804])\nx.mean()\nx.var()\nstd=x.std()"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Recent posts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework1\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework2\n\n\n\n\n\n\n\n\n\n\n\n빅데이터 스쿨 Homework3\n\n\n\n\n\n\n\n\n\n\n\nhw4\n\n\n\n\n\n\n\n\n\n\n\nhw5\n\n\n\n\n\n\n\n\n\n\n\nhw6\n\n\n\n\n\n\n\n\n\n\n\nhw7\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
