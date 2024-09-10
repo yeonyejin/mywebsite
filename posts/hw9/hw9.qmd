@@ -213,15 +213,9 @@ print(conf_matrix)
 
 # 문제 9. 해당 모델의 Accuracy는 얼마인가요?
 ```{python}
-from sklearn.metrics import accuracy_score, f1_score
 
-# 예측 결과
-y_pred = predictions  # 이전의 예측 결과
-y_true = y_test  # 실제 결과
 
-# Accuracy 계산
-accuracy = accuracy_score(y_true, y_pred)
-# accuracy = 1.0
+
 
 ```
 
@@ -229,10 +223,7 @@ accuracy = accuracy_score(y_true, y_pred)
 
 ```{python}
 # F1 Score 계산
-f1 = f1_score(y_true, y_pred)
-# f1 = 1.0
-print(f'Accuracy: {accuracy:.2f}')
-print(f'F1 Score: {f1:.2f}')
+
 ```
 
 
