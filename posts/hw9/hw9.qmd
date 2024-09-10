@@ -182,30 +182,36 @@ upper_bound = 5.14188
 # 문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.
 
 ```{python}
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.metrics import confusion_matrix
+import statsmodels.api as sm
 
-# 데이터 로드
- # 탭으로 구분된 파일
-X = data.drop(columns=['REMISS'])
-y = data['REMISS']
+# 데이터 준비 및 로지스틱 회귀 모델 피팅
+# 예를 들어, 'X'와 'y'는 주어진 데이터, 타겟 변수입니다.
 
-# 데이터 분할
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# 로지스틱 회귀 모델 생성 및 학습
-model = LogisticRegression()
-model.fit(X_train, y_train)
+# 주어진 데이터에 상수 열 추가 (절편을 포함하기 위함)
+X = sm.add_constant(X)
+model = sm.Logit(y, X)
+result = model.fit()
 
 # 예측 확률 계산
-pred_probs = model.predict_proba(X_test)[:, 1]
-predictions = [1 if prob >= 0.5 else 0 for prob in pred_probs]
+y_pred_prob = result.predict(X)
 
-# 혼동 행렬 생성
-conf_matrix = confusion_matrix(y_test, predictions)
-print(conf_matrix)
+# 50% 이상이면 1로 처리 (이진 분류)
+y_pred_class = (y_pred_prob >= 0.5).astype(int)
+
+# 혼동 행렬 계산
+cm = confusion_matrix(y, y_pred_class)
+
+# 혼동 행렬 시각화
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, annot_kws={"size": 15})
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted Label')
+plt.ylabel('True Label')
+plt.show()
 
 
 ```
@@ -214,7 +220,7 @@ print(conf_matrix)
 # 문제 9. 해당 모델의 Accuracy는 얼마인가요?
 ```{python}
 
-
+(15+5)/27
 
 
 ```
@@ -222,7 +228,7 @@ print(conf_matrix)
 # 문제 10. 해당 모델의 F1 Score를 구하세요
 
 ```{python}
-# F1 Score 계산
+2*(1/((5/8)+(5/9)))
 
 ```
 
